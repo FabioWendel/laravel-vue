@@ -4,6 +4,8 @@ FROM node:20
 # Defina o diretório de trabalho
 WORKDIR /var/www
 
+RUN yarn
+
 # Copie os arquivos de configuração do npm
 COPY package*.json ./
 
