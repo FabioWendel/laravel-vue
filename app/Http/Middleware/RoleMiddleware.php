@@ -9,7 +9,7 @@ class RoleMiddleware
 {
     public function handle($request, Closure $next, ...$roles)
     {
-        Log::error('AQUI');
+
         // Verifica se o usuário está autenticado
         if (!$request->user()) {
             return response()->json(['message' => 'Unauthorized'], 401);
