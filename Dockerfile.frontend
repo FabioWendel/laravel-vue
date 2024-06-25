@@ -1,0 +1,20 @@
+# Use a imagem oficial do Node.js 20
+FROM node:20
+
+# Defina o diretório de trabalho
+WORKDIR /var/www
+
+# Copie os arquivos de configuração do npm
+COPY package*.json ./
+
+# Instale as dependências do projeto
+RUN npm install
+
+# Copie os arquivos do projeto para o contêiner
+COPY . .
+
+# Exponha a porta que o Vite usa
+EXPOSE 3000
+
+# Comando para iniciar o servidor Vite
+CMD ["npm", "run", "dev"]
