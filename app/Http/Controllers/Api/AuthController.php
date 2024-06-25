@@ -75,7 +75,7 @@ class AuthController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
-        if (auth()->user()->role !== 'admin') {
+        if (auth()->user()->role !== 'admin' || auth()->user()->role !== 'master') {
             return response()->json(['message' => 'Unauthorized'], 403);
         }
 
@@ -113,7 +113,7 @@ class AuthController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
-        if (auth()->user()->role !== 'admin') {
+        if (auth()->user()->role !== 'admin'  || auth()->user()->role !== 'master') {
             return response()->json(['message' => 'Unauthorized'], 403);
         }
 
