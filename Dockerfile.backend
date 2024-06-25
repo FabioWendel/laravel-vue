@@ -28,6 +28,7 @@ COPY . .
 RUN composer dump-autoload
 
 RUN php artisan key:generate
+RUN php artisan storage:link
 RUN chmod 777 -R storage
 
 # Corrija as permissões do diretório de armazenamento e cache
