@@ -4,19 +4,21 @@ FROM node:20
 # Defina o diretório de trabalho
 WORKDIR /var/www
 
-RUN yarn
-
 # Copie os arquivos de configuração do npm
 COPY package*.json ./
 
-# Instale as dependências do projeto
-RUN npm install -g vite && npm install
+RUN npm install
 
 # Copie os arquivos do projeto para o contêiner
 COPY . .
+
+# Instale as dependências do projeto
+RUN npm install -g vite
+
+RUN npm run build
 
 # Exponha a porta que o Vite usa
 EXPOSE 3000
 
 # Comando para iniciar o servidor Vite
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "serve"]
