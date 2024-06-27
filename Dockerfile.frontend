@@ -21,4 +21,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Comando para iniciar o servidor Vite
-CMD ["npm", "run", "serve"]
+CMD ["npm", "run", "dev"]
